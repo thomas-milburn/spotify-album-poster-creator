@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "spotify-button",
+  name: "SpotifyButton",
   props: {
     text: {
       default: "",

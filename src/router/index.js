@@ -1,22 +1,28 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import {createRouter, createWebHistory} from 'vue-router';
 import Link from "../views/Link";
+import CreatePoster from "../views/CreatePoster";
+import OauthCallback from "../views/OauthCallback";
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'CreatePoster',
+    component: CreatePoster
   },
   {
     path: '/link',
     name: 'Link',
     component: Link
+  },
+  {
+    path: '/oauth-callback',
+    name: 'OauthCallback',
+    component: OauthCallback
   }
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 

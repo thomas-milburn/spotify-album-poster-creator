@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SpotifyButton from "../components/spotify-button";
+import SpotifyButton from "../components/SpotifyButton";
 
 export default {
   name: "Link",
@@ -15,8 +15,9 @@ export default {
   methods: {
     linkedAccount() {
       // Creating the url which the user will be redirected to
-      const redirectUrl = new URL(document.location);
-      redirectUrl.hash = "oauth-callback"
+      const redirectUrl = new URL(window.location.href);
+      redirectUrl.pathname = "/oauth-callback"
+      console.log(redirectUrl.toString())
 
       // Generating a random cookie for state that can be verified
       const stateValue = Math.random()*100000000 + ""

@@ -2,6 +2,18 @@
   <router-view/>
 </template>
 
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      accessToken: null
+    }
+  }
+};
+</script>
+
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
