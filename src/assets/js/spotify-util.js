@@ -25,7 +25,12 @@ export function getOauthUrl() {
 export function searchSpotify(query) {
    const url = new URL("https://api.spotify.com/v1/search");
    url.searchParams.set("q", query)
-   url.searchParams.set("type", "track")
+   url.searchParams.set("type", "album")
+   return spotifyGet(url)
+}
+
+export function getAlbum(albumId) {
+   const url = new URL(`https://api.spotify.com/v1/albums/${albumId}`);
    return spotifyGet(url)
 }
 
