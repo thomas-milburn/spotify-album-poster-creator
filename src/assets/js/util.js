@@ -19,6 +19,3 @@ export function setCookie(name, value, seconds) {
    document.cookie = name + "=" + (value || "") + expires + "; path=/";
 }
 
-export function getSpotifyAccessToken() {
-   return getCookie("spotify-access-token")
-}

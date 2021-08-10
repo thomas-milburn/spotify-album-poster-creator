@@ -2,7 +2,7 @@ import {createRouter, createWebHistory} from 'vue-router';
 import Link from "../views/Link";
 import CreatePoster from "../views/CreatePoster";
 import OauthCallback from "../views/OauthCallback";
-import {getSpotifyAccessToken} from "../assets/js/util";
+import {getSpotifyAccessToken} from "../assets/js/spotify-util";
 
 const routes = [
    {
