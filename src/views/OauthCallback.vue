@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {getCookie} from "../assets/js/util";
+import {getCookie, setCookie} from "../assets/js/util";
 
 export default {
   name: "OauthCallback",
@@ -28,21 +28,22 @@ export default {
     }
 
     // routeHashDict should now contain all the params passed to us from Spotify
-
-    if (!("access_token" in routeHashDict && "state" in routeHashDict)) {
-      this.$router.push({"name": "Link"});
+    if (!("access_token" in routeHashDict && "state" in routeHashDict && "expires_in" in routeHashDict)) {
+      this.$router.push({"name": "link"});
       return;
     }
 
     // Checking state to against cookie to prevent cross-site request forgery
     const stateCookie = getCookie("state");
     if (routeHashDict["state"] !== stateCookie) {
-      this.$router.push({"name": "Link"});
+      this.$router.push({"name": "link"});
       return;
     }
 
+    setCookie("spotify-access-token", routeHashDict["access_token"], routeHashDict["expires_in"])
+
     this.$root.accessToken = routeHashDict["access_token"]
-    this.$router.push({"name": "CreatePoster"});
+    this.$router.push({"name": "createPoster"});
   }
 };
 </script>

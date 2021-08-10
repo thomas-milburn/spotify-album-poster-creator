@@ -1,17 +1,18 @@
 <template>
   <div>
     <h1>Create poster</h1>
-    <p>{{ $root.accessToken }}</p>
+    <p>{{ accessToken }}</p>
   </div>
 </template>
 
 <script>
+import {getSpotifyAccessToken} from "../assets/js/util";
+
 export default {
   name: "CreatePoster",
-  mounted() {
-    if (this.$root.accessToken == null) {
-      this.$router.push({"name": "Link"})
-      return;
+  computed: {
+    accessToken() {
+      return getSpotifyAccessToken()
     }
   }
 };

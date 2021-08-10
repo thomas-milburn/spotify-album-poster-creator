@@ -3,13 +3,9 @@
 </template>
 
 <script>
+
 export default {
-  name: "App",
-  data() {
-    return {
-      accessToken: null
-    }
-  }
+  name: "App"
 };
 </script>
 

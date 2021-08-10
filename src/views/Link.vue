@@ -17,7 +17,6 @@ export default {
       // Creating the url which the user will be redirected to
       const redirectUrl = new URL(window.location.href);
       redirectUrl.pathname = "/oauth-callback"
-      console.log(redirectUrl.toString())
 
       // Generating a random cookie for state that can be verified
       const stateValue = Math.random()*100000000 + ""
