@@ -22,7 +22,7 @@ export async function buildPoster(albumData) {
       "July", "August", "September", "October", "November", "December"
    ];
 
-   const pagePadding = 50;
+   const pagePadding = 30;
    const albumNameFontSize = 30;
    const artistNameFontSize = 20;
    const releaseDateFontSize = 12;
