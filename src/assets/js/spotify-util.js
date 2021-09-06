@@ -16,6 +16,7 @@ export function getOauthUrl() {
    const oauthUrl = new URL("https://accounts.spotify.com/authorize");
    oauthUrl.searchParams.append("client_id", process.env.VUE_APP_SPOTIFY_CLIENT_ID);
    oauthUrl.searchParams.append("state", stateValue);
+   oauthUrl.searchParams.append("scope", "user-read-recently-played")
    oauthUrl.searchParams.append("response_type", "token");
    oauthUrl.searchParams.append("redirect_uri", redirectUrl.toString());
 
@@ -31,6 +32,12 @@ export function searchSpotify(query) {
 
 export function getAlbum(albumId) {
    const url = new URL(`https://api.spotify.com/v1/albums/${albumId}`);
+   return spotifyGet(url)
+}
+
+export function getRecentlyPlayed() {
+   const url = new URL("https://api.spotify.com/v1/me/player/recently-played");
+   url.searchParams.set("limit", "50")
    return spotifyGet(url)
 }
 
