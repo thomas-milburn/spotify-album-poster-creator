@@ -76,23 +76,25 @@ export async function buildPoster(albumData) {
    });
 
    // Drawing release date
-   const releaseDateSplit = albumData.release_date.split("-");
-   const releaseYear = releaseDateSplit[0];
-   const releaseMonth = releaseDateSplit[1];
-   const releaseDay = releaseDateSplit[2];
+   if (albumData.release_date_precision === "day") {
+      const releaseDateSplit = albumData.release_date.split("-");
+      const releaseYear = releaseDateSplit[0];
+      const releaseMonth = releaseDateSplit[1];
+      const releaseDay = releaseDateSplit[2];
 
-   const releaseMonthName = monthNames[releaseMonth - 1];
-   const releaseDateText = `${releaseMonthName} ${releaseDay}, ${releaseYear}`;
-   const releaseDateWidth = helvetica.widthOfTextAtSize(releaseDateText, releaseDateFontSize);
+      const releaseMonthName = monthNames[releaseMonth - 1];
+      const releaseDateText = `${releaseMonthName} ${releaseDay}, ${releaseYear}`;
+      const releaseDateWidth = helvetica.widthOfTextAtSize(releaseDateText, releaseDateFontSize);
 
-   page.drawText(releaseDateText, {
-      x: width - pagePadding - releaseDateWidth,
-      y: artistNameY,
-      size: releaseDateFontSize,
-      font: helvetica,
-      color: rgb(0, 0, 0),
-      maxWidth: width - pagePadding * 2
-   });
+      page.drawText(releaseDateText, {
+         x: width - pagePadding - releaseDateWidth,
+         y: artistNameY,
+         size: releaseDateFontSize,
+         font: helvetica,
+         color: rgb(0, 0, 0),
+         maxWidth: width - pagePadding * 2
+      });
+   }
 
    // Drawing separation line
    const separationLineY = artistNameY - topSectionSpacing - separationLineHeight;
