@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Find your album</h1>
-    <input type="text" v-model="albumSearchQuery">
+    <input type="text" v-model="albumSearchQuery" class="search-input" placeholder="Search for your album">
 
     <album-list :albums="displayedAlbums"/>
   </div>
@@ -65,5 +64,31 @@ export default {
 </script>
 
 <style scoped>
+
+.search-input {
+  height: 40px;
+  width: 100%;
+  padding: 3px 20px;
+  margin: 25px 0;
+
+  font-size: 15px;
+
+  border-radius: 20px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  outline-width: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+@media screen and (min-width: 390px) {
+  .search-input {
+    width: 350px;
+  }
+}
 
 </style>
